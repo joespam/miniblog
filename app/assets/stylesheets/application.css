@@ -15,12 +15,12 @@
  */
 body {
 	background-color: gray;
-	color: red;
+	color: green;
 }
 
 #header {
 	margin: auto;
-	width: 500px;
+	width: 250px;
 }
 
 #header a {
