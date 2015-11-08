@@ -1,19 +1,23 @@
-<h1>User Index</h1>
+<h1>Member List</h1>
 
-<h2>New Members</h2>
-<ul>
-	<% new_members.each do |user| %>
-		<li><%= user_link user %></li>
-	<% end %>
-</ul>
+<% if any_new_members %>
+	<h2>New Members</h2>
+	<ul>
+		<% new_members.each do |user| %>
+			<li><%= user_link user %></li>
+		<% end %>
+	</ul>
+<% end %>
 
 
 <hr>
 <p>
 <% if !session[:user_id].nil? %>
-	<%= link_to "Logout", logout_path, method: :delete %>
+	<%= link_to "Logout ", logout_path, method: :delete %>| Not A Member?
+	<%= link_to " Sign up!", new_user_path %>
 <% else %>
-	<%= link_to "Login", login_path %> 
+	<%= link_to "Login", login_path %> | Not A Member?
+	<%= link_to " Sign up!", new_user_path %>
 <% end %>
 </p>
 <hr>
@@ -29,5 +33,5 @@
 <% end %>
 <hr>
 <p>
-	<%= link_to "Add new user", new_user_path %>
+	
 </p>

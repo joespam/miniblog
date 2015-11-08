@@ -19,14 +19,23 @@ module UsersHelper
 	end
 
 	def new_members
-			User.signed_up_recently 2
+		User.signed_up_recently 2
+	end
+
+	# returns true if there are any new members
+	#
+	def any_new_members
+		retval = false
+		new_users = User.signed_up_recently 2
+		retval = true if new_users.length > 0
+		return retval
 	end
 
 	def user_link user
 		link_text = if user == current_user
 							'you'
 						else
-							user
+							"#{user.fname} #{user.lname}"
 						end
 	end
 
