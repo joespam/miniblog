@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 		if post.destroy
 		 flash[:notice] = "Post deleted successfully."
 		else
-		 flash[:alert] = "There was a problem deleting the user."
+		 flash[:alert] = "There was a problem deleting the Post."
 		end
 		redirect_to post_path(session[:user_id])
 	end

@@ -28,6 +28,16 @@ class CommentsController < ApplicationController
 			redirect_to edit_post_comment_path post.id, comment.id
 		end			
 	end
+	def destroy
+		comment = Comment.find_by_id params[:id]
+		post = comment.post
+		if comment.destroy
+		 flash[:notice] = "Comment deleted successfully."
+		else
+		 flash[:alert] = "There was a problem deleting the Comment."
+		end
+		redirect_to post_path post.id
+	end
 
 	private
 	def comment_params
