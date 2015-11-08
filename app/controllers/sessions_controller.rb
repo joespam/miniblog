@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 			session[:user_id] = @user.id
 			current_user
 			flash[:notice] = "You have logged in successfully."
-			redirect_to post_path(session[:user_id])
+			redirect_to posts_path(session[:user_id])
 		else 
 			flash[:alert] = "invalid user name or email #{params[:login]}"
 			redirect_to login_path
