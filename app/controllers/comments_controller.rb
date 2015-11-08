@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 		comment[:post_id] = params[:post_id]
 		comment[:user_id] = session[:user_id]
 		Comment.create comment
+		Comment.save
 		redirect_to post_path params[:post_id]
 #		redirect_to user_path session[:user_id]
 	end
