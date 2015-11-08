@@ -1,0 +1,14 @@
+<h1>Login</h1>
+<hr>
+
+<%= form_for @login do |f| %>
+	<%=f.label "Enter Username or email:" %>
+	<%=f.text_field :login %>
+	<%=f.label "Password:" %>
+	<%=f.text_field :password %>
+	<%=f.submit "Login" %>
+<% end %>
+
+<hr>
+<%= link_to "Bloggers", users_path %>
+<%= link_to "Signup!", new_user_path %>

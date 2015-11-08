@@ -1,0 +1,21 @@
+<h1>Edit user</h1>
+<hr>
+<%= form_for @user , html: {method: :put} do |f| %>
+ 	<p>
+		<%=f.label "First Name" %>
+		<%=f.text_field :fname %>
+
+		<%=f.label "Last Name" %>
+		<%=f.text_field :lname %>
+	</p><p>
+		<%=f.label "Email" %>
+		<%=f.text_field :email %>
+	</p><p>
+		<%=f.label "User Name" %>
+		<%=f.text_field :username %>
+
+		<%=f.label "Password" %>
+		<%=f.text_field :password %>
+	</p>
+	<%=f.submit "Update User" %> 
+<% end %>

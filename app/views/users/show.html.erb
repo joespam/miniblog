@@ -1,0 +1,33 @@
+<h1>Show Posts</h1>
+
+<% #This page lists all posts made by the specified user %>
+
+<p>
+<% if session[:user_id].nil? %>
+	<%= link_to "Login", login_path %> 
+<% else %>
+	<%= link_to "Logout", logout_path, method: :delete %>
+<% end %>
+</p>
+<hr>
+<% if !session[:user_id].nil? %>
+	<%= link_to "New Post", new_post_path %>
+	<hr>
+<% end %>	
+
+<% @posts.each do |post| %>   
+	<h2>
+		<%= link_to "#{post.title}", post_path(post.id) %>
+	</h2>
+	<%=  "by #{post.user.fname} #{post.user.lname}" %>
+	<p>
+		<%= "#{post.body}" %>
+	</p>
+
+   <% if !session[:user_id].nil? %>
+		<%= link_to "Delete Post", post_path(post.id), method: :delete %> 
+		<%= link_to "Edit Post", edit_post_path(post.id) %>
+		<%= link_to "Comment", post_path(post.id) %> 
+	<% end %>
+	<hr>
+<% end %>
