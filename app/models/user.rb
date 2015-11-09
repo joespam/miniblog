@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
 	validates_presence_of :fname
 	validates_presence_of :lname
 	validates_presence_of :username
-	validates_presence_of :password
+	validates :password, confirmation: true, presence: true
+	validates :password, length: {minimum: 4, maximum: 15}
 	validates :email, presence: true, uniqueness: true
 
 	scope :signed_in_today, -> {   
