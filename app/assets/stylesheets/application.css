@@ -18,6 +18,12 @@ body {
 	color: green;
 }
 
+.flash {
+	color: red;
+	margin: auto;
+	width: 400px;
+}
+
 #header {
 	margin: auto;
 	width: 250px;

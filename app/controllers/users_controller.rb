@@ -5,7 +5,13 @@ class UsersController < ApplicationController
 			flash[:notice] = "Your account was created successfully"
 			redirect_to users_path
 		else
-			flash[:alert] = "There was a problem saving your account"
+			errmsg = "There was a problem saving your account"
+			if user.errors.full_messages.any?
+				user.errors.full_messages.each do |error_message|
+               errmsg += "<br>" + error_message
+				end
+			end
+			flash[:alert] = errmsg
 			@user = user
 			render :new
 		end

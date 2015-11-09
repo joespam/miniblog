@@ -7,9 +7,10 @@
 	  <%= csrf_meta_tags %>
 	</head>
 	<body>
-
-		<%= flash[:notice] if flash[:notice] %> 
-		<%= flash[:alert] if flash[:alert] %>
+		<div class="flash">
+			<%= flash[:notice] if flash[:notice] %> 
+			<%= flash[:alert] if flash[:alert] %>
+		</div>
 		<div id="header">
 			<%= link_to "KaTsU Da-BloG", users_path %>
 		</div>

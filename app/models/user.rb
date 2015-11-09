@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
 
 	validates_presence_of :fname
 	validates_presence_of :lname
-	validates_presence_of :email
 	validates_presence_of :username
 	validates_presence_of :password
+	validates :email, presence: true, uniqueness: true
 
 	scope :signed_in_today, -> {   
 		where('last_sign_in between ? and ?', Time.now-1.day, Time.now) 
