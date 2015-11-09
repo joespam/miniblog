@@ -11,7 +11,7 @@ class UsersController < ApplicationController
                errmsg += "<br>" + error_message
 				end
 			end
-			flash[:alert] = errmsg
+			flash[:alert] = errmsg.html_safe
 			@user = user
 			render :new
 		end
