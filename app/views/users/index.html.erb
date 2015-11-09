@@ -9,9 +9,8 @@
 	</ul>
 <% end %>
 
-
 <hr>
-<p>
+<p class="lnkGrp">
 <% if !session[:user_id].nil? %>
 	<%= link_to "Logout ", logout_path, method: :delete %>| Not A Member?
 	<%= link_to " Sign up!", new_user_path %>
@@ -21,16 +20,22 @@
 <% end %>
 </p>
 <hr>
-<% @users.each do |user| %>   
-	<p>
-		<%= link_to "#{user.fname} #{user.lname} #{user.email}", user %>
-	</p>
-	<!-- <%= link_to("Delete", user_path(user.id), method: :delete) %> -->
-	<% if !session[:user_id].nil? %>
-		<%= link_to("Delete", user, method: :delete) %>
-		<%= link_to "Edit", edit_user_path(user.id) %>
+
+	<% @users.each do |user| %>   
+		<div class="profile">
+			<p>
+				<%= link_to "#{user.fname} #{user.lname}", user, 
+				{ :class=>"profileLink" }  %>
+			</p>
+			<% if !session[:user_id].nil? %>
+				<p class="profileMod">
+					<%= link_to("Delete", user, method: :delete) %>
+					<%= link_to "Edit", edit_user_path(user.id) %>
+				</p>
+			<% end %>
+		</div>
 	<% end %>
-<% end %>
+
 <hr>
 <p>
 	

@@ -2,20 +2,20 @@
 <hr>
 <%= form_for @user do |f| %>
  	<p>
-		<%=f.label "First Name" %>
-		<%=f.text_field :fname %>
-
-		<%=f.label "Last Name" %>
-		<%=f.text_field :lname %>
+		<%=f.label "First Name", { class: "loginFieldLabel" } %>
+		<%=f.text_field :fname, { class: "loginField" } %>
 	</p><p>
-		<%=f.label "Email" %>
-		<%=f.text_field :email %>
+		<%=f.label "Last Name", { class: "loginFieldLabel" } %>
+		<%=f.text_field :lname, { class: "loginField" }  %>
 	</p><p>
-		<%=f.label "User Name" %>
-		<%=f.text_field :username %>
-
-		<%=f.label "Password" %>
-		<%=f.text_field :password %>
+		<%=f.label "Email", { class: "loginFieldLabel" } %>
+		<%=f.text_field :email, { class: "loginField" }  %>
+	</p><p>
+		<%=f.label "User Name", { class: "loginFieldLabel" } %>
+		<%=f.text_field :username, { class: "loginField" }  %>
+	</p><p>
+		<%=f.label "Password", { class: "loginFieldLabel" } %>
+		<%=f.text_field :password, { class: "loginField" }  %>
 	</p>
-	<%=f.submit :create %> 
+	<%=f.submit :create, { id: "linkGroup"} %> 
 <% end %>

@@ -16,11 +16,13 @@
 <% end %>	
 
 <% @posts.each do |post| %>   
-	<h2>
+	<h2 class="posTitle">
 		<%= link_to "#{post.title}", post_path(post.id) %>
 	</h2>
-	<%=  "by #{post.user.fname} #{post.user.lname}" %>
-	<p>
+	<p class="byline">
+		<%=  "by #{post.user.fname} #{post.user.lname}" %>
+	</p>
+	<p class="post">
 		<%= "#{post.body}" %>
 	</p>
 

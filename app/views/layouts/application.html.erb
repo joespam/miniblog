@@ -10,10 +10,13 @@
 
 		<%= flash[:notice] if flash[:notice] %> 
 		<%= flash[:alert] if flash[:alert] %>
-		
-		<%= link_to "Bloggers Select Page", users_path %>
+		<div id="header">
+			<%= link_to "Blog!Tastic", users_path %>
+		</div>
 
-		<%= yield %>
+		<div id="content">
+			<%= yield %>
+		</div>
 
 	</body>
 </html>
