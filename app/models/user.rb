@@ -2,6 +2,12 @@ class User < ActiveRecord::Base
 	has_many :posts
 	has_many :comments
 
+	validates_presence_of :fname
+	validates_presence_of :lname
+	validates_presence_of :email
+	validates_presence_of :username
+	validates_presence_of :password
+
 	scope :signed_in_today, -> {   
 		where('last_sign_in between ? and ?', Time.now-1.day, Time.now) 
 	}
